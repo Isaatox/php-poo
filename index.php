@@ -10,11 +10,11 @@ print("<h1>Jeu de combat</h1>");
 // print("Expérience = " . $perso->afficherExperience());
 
 // On crée deux personnages
-$perso1 = new Personnage();
+$perso1 = new Personnage("Walter");
 $perso1->definirForce(20);
 $perso1->definirExperience(15);
 
-$perso2 = new Personnage();
+$perso2 = new Personnage("Leny");
 $perso2->definirForce(60);
 $perso2->definirExperience(1);
 

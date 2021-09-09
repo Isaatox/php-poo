@@ -10,6 +10,12 @@ class Personnage
     private $_experience = 1;   // Son expérience, par défaut est à 1
     private $_degats = 0;       // Ses dégâts par défaut
 
+    public function __construct($nom)
+    {
+        $this->_nom = $nom;
+        print('Le personnage "'.$nom.'" à été créé !<br/>');
+    }
+
     public function definirForce($force)
     {
         $this->_force = $force;
