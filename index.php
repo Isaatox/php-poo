@@ -1,28 +1,21 @@
-<?php
+<?
 
-include "Personnage.php";
+function chargerClasse(string $classe)
+{
+ include $classe . '.php';   
+}
 
-print("<h1>Jeu de combat</h1>");
+//On enregistre la fonction en 
+//Pour qu'elle soi appelée dès qu'on nciera une classe non déclarée.
+spl_autoload_register('chargerClasse');
 
-// $perso = new Personnage();
-// $perso->parler();
-// $perso->gagnerExperience();
-// print("Expérience = " . $perso->afficherExperience());
-
-// On crée deux personnages
-$perso1 = new Personnage("Walter");
-// $perso1->definirForce(20);
-$perso1->setExperience(15);
-
-$perso2 = new Personnage("Leny", 60, 0);
-// $perso2->definirForce(60);
-$perso2->setExperience(1);
-
-// Ensuite, on veut que le personnage n°1 frappe le personne n°2.
-$perso1->frapper($perso2);
-$perso2->frapper($perso1);
-
-// print("<br/>Dégats du joueur n°1 = ".$perso1->getDegats());
-// print("<br/>Dégats du joueur n°2 = ".$perso2->getDegats());
+try {
+    $db = new PDO($dsn, $user, $password);
+    if ($db) {
+        # code...
+    }
+} catch (\Throwable $th) {
+    //throw $th;
+}
 
 ?>
