@@ -19,15 +19,24 @@ class Personnage
     private static $_texteADire = 'La partie est démarré. Qui veut se battre !<br/>';
     private static $_nbreJoueurs = 0;
 
-    public function __construct(string $nom, int $force = 50, int $degats = 0)
+    public function __construct(array $ligne)
     {
-        $this->setNom($nom);         //init nvx perso
-        $this->setForce($force);     //init de la force
-        $this->setDegats($degats);   //init des dégats
-        $this->setExperience(1);     //init expérience à 1
+        $this->hydrate($ligne);
         self::$_nbreJoueurs++;
+        print('<br/>Le personnage "'.$ligne['nom'].'" à été créé !');
 
-        print('Le personnage "'.$nom.'" à été créé !');
+    }
+
+
+    public function hydrate(array $ligne)
+    {
+
+        $this->setNom($ligne['nom']);         //init nvx perso
+        $this->setForce((int)$ligne['force']);     //init de la force
+        $this->setDegats($ligne['degats']);   //init des dégats
+        $this->setNiveau($ligne['niveau']);
+        $this->setExperience(1);     //init expérience à 1
+
     }
 
     public function __toString():string
