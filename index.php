@@ -20,7 +20,7 @@ try {
 
     print('<br/>Liste des personnages :');
     foreach ($personnages as $personnage) {
-        print('<br/>' . $personnage->getNom());
+        print('<br/><a href=personnage_view.php?id='.$personnage->getId().'>' . $personnage->getNom().'</a>');
     }
 
 

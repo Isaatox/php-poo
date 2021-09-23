@@ -27,6 +27,12 @@ class PersonnagesManager
 
     public function getOne(int $id) {
         //Execute une requête de type SELECT avec une clause WHERE, et retourne un objet
+        $sth = $this->_db->prepare('SELECT id, nom,`force`, degats, niveau,
+        experience FROM personnages WHERE id=?;');
+        $sth->execute(array($id));
+        $ligne = $sth->fetch();
+        $perso = new Personnage($ligne);
+        return $perso;
     }
 
     public function getList():array {
